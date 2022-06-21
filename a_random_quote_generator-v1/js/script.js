@@ -92,6 +92,10 @@ function changeBackground() {
   element.style.backgroundColor = `rgba(${red},${green},${blue},1)`;
 }
 
+// timer to change quote every 10 seconds
+let autoChange = () => refresh = setInterval(printQuote, 10000);
+autoChange()
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
