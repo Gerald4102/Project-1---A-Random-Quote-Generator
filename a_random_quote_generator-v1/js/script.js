@@ -15,13 +15,15 @@ const quotes = [
     quote: 'a',
     source: 'asource',
     citation: 'acit',
-    year: '2000'
+    year: '2000',
+    tag: 'wellbeing'
   },
   {
     quote: 'b',
     source: 'bsource',
     citation: 'bcit',
-    year: '2001'
+    year: '2001',
+    tag: 'movies'
   },
   {
     quote: 'c',
@@ -37,6 +39,10 @@ const quotes = [
     quote: 'e',
     source: 'esource'
   },
+  {
+    quote: 'f',
+    source: 'fsource'
+  }
 ];
 
 /***
@@ -66,9 +72,24 @@ function printQuote() {
       if( quoteToPrint.year !== undefined) {
         htmlToPrint += `<span class="year"> ${quoteToPrint.year} </span>`; 
       }
+      if( quoteToPrint.tag !== undefined) {
+        htmlToPrint += `<span class="tag"> ${quoteToPrint.tag} </span>`; 
+      }
     htmlToPrint += `</p>`;
     
-  return document.getElementById('quote-box').innerHTML = htmlToPrint;
+  document.getElementById('quote-box').innerHTML = htmlToPrint;
+  changeBackground();
+}
+
+
+// https://alvarotrigo.com/blog/change-css-javascript/
+function changeBackground() {
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+  let alpha = Math.random() + 0.01;
+  let element = document.querySelector('body');
+  element.style.backgroundColor = `rgba(${red},${green},${blue},1)`;
 }
 
 /***
