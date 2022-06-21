@@ -53,10 +53,12 @@ function getRandomQuote() {
  * `printQuote` function
 ***/
 function printQuote() {
+  
   let quoteToPrint = getRandomQuote()
   let htmlToPrint = '';
+
     htmlToPrint += `<p class="quote"> ${quoteToPrint.quote} </p>`;
-    // are there supposed to be line breaks for the HTML?
+    // Question: are there supposed to be line breaks for the HTML?
     htmlToPrint += `<p class="source"> ${quoteToPrint.source}`;
       if( quoteToPrint.citation !== undefined) {
         htmlToPrint += `<span class="citation"> ${quoteToPrint.citation} </span>`; 
@@ -65,11 +67,9 @@ function printQuote() {
         htmlToPrint += `<span class="year"> ${quoteToPrint.year} </span>`; 
       }
     htmlToPrint += `</p>`;
-    ;
-  return htmlToPrint;
+    
+  return document.getElementById('quote-box').innerHTML = htmlToPrint;
 }
-
-document.getElementById('quote-box').innerHTML = printQuote();
 
 /***
  * click event listener for the print quote button
